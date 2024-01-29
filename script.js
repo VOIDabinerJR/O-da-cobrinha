@@ -1,6 +1,8 @@
 const canvas = document.querySelector("canvas")
 const ctx = canvas.getContext("2d")
 
+const audio = new  Audio('../assets/audio.mp3')
+
 const size = 30
 
 const snake = [
@@ -113,6 +115,8 @@ const checkEat =() => {
     const head = snake[snake.length-1]
     if (head.x == food.x && head.y == food.y) {
         snake.push(head)
+        audio.play()
+
         let x = randomPosition()
         let y = randomPosition()
 
@@ -127,6 +131,27 @@ const checkEat =() => {
     }
 }
 
+checkCollision = () => {
+    const head = snake[snake.length-1]
+    const canvasLimit = canvas.width - size 
+    const neckIndex = snake.length -2 // comecar a contar do pescoco enao da cabeca pk cabeca choca com cabeca
+
+    const selfCollision = snake.find(position, index => {
+        return index < neckIndex && position.x == head.x && position.y == head.y
+    })
+    
+    const wallCollision = head.x < 0 || head.x > canvasLimit || head.y < 0 || head.y > canvasLimit
+
+    if (wallCollision || selfCollision) {
+        alert('perdeu')
+        gameOver()
+        
+    }
+}
+
+const gameOver = () => {
+    direction = undefined
+}
 const gameLoop = () => {
     clearInterval(LoopId)
     ctx.clearRect(0, 0, 600, 600) 
