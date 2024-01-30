@@ -132,21 +132,23 @@ const checkEat =() => {
 }
 
 checkCollision = () => {
-    const head = snake[snake.length-1]
+    const head = snake[snake.length - 1]
     const canvasLimit = canvas.width - size 
-    const neckIndex = snake.length -2 // comecar a contar do pescoco enao da cabeca pk cabeca choca com cabeca
-
+    const neckIndex = snake.length - 2 // comecar a contar do pescoco enao da cabeca pk cabeca choca com cabeca
+    
+    const wallCollision = head.x < 0 || head.x > canvasLimit || head.y < 0 || head.y > canvasLimit
+    
     const selfCollision = snake.find(position, index => {
         return index < neckIndex && position.x == head.x && position.y == head.y
     })
     
-    const wallCollision = head.x < 0 || head.x > canvasLimit || head.y < 0 || head.y > canvasLimit
+   
 
     if (wallCollision || selfCollision) {
         alert('perdeu')
-        gameOver()
+       
         
-    }
+    }   
 }
 
 const gameOver = () => {
@@ -155,11 +157,14 @@ const gameOver = () => {
 const gameLoop = () => {
     clearInterval(LoopId)
     ctx.clearRect(0, 0, 600, 600) 
+    
     drawGrid()
     drawFood()
     moveSnake()
     drawSnake()
     checkEat()
+    checkCollision()
+    
     
 
     LoopId = setTimeout(() => {
