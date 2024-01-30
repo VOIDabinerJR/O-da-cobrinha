@@ -14,6 +14,13 @@ body {
     justify-content: center;
     color: white;
     flex-direction: column;
+    body {
+        background-image: url('caminho/para/sua/imagem.jpg');
+        background-size: cover;
+        background-position: center;
+      
+    }
+    
 
 
 }
@@ -63,3 +70,7 @@ canvas {
     gap: 5px;
     cursor: pointer;
  }
+
+
+
+ 
