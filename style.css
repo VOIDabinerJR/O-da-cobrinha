@@ -15,7 +15,7 @@ body {
     color: white;
     flex-direction: column;
     body {
-        background-image: url('caminho/para/sua/imagem.jpg');
+        background-image: url('pngtree-pixel-art-sky-cloud-game-image_1406560.jpg');
         background-size: cover;
         background-position: center;
       
@@ -25,7 +25,7 @@ body {
 
 }
 canvas {
-    background-color: aqua;
+   /* background-color: aqua; */
     
 
 }
