@@ -7,7 +7,12 @@ const menu = document.querySelector(".menu--screen")
 const buttonPlay = document.querySelector(".button--play")
 
 const audio = new  Audio('../assets/audio.mp3')
-
+document.body.style.backgroundImage = "url('../assets/imagem.jpg')";
+document.body.style.backgroundSize = "cover";
+document.body.style.backgroundPosition = "center";
+document.body.style.backgroundImage = "url('../assets/imagem.png')";
+document.body.style.backgroundSize = "cover";
+document.body.style.backgroundPosition = "center";
 const size = 30
 const initialPosition = {x: 30, y: 90}
 
@@ -179,7 +184,7 @@ const gameLoop = () => {
 
     LoopId = setTimeout(() => {
         gameLoop()
-    },300)
+    },150)
 }
 
 
